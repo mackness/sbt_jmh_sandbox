@@ -10,14 +10,14 @@ object ValidParensSolution {
     "{" -> "}"
   )
 
-  val reverseMapping = mapping.map(_.swap)
+  val reverseMapping: Map[String, String] = mapping.map(_.swap)
 
   def isValid(s: String): Boolean = {
-    var stack = new Stack[String]()
+    var stack: Stack[String] = new Stack[String]()
 
     val split: List[String] = s.split("").toList
-    val opening = mapping.keys.toList
-    val closing = reverseMapping.keys.toList
+    val opening: List[String] = mapping.keys.toList
+    val closing: List[String] = reverseMapping.keys.toList
 
     split.foreach { curr: String =>
       if (opening.contains(curr)) stack.push(curr)
